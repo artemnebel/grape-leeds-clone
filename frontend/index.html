@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grape Leads Clone</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&libraries=places,drawing"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h2>Select Area and Business Type</h2>
+    <select id="businessType">
+      <option value="plumber">Plumber</option>
+      <option value="electrician">Electrician</option>
+    </select>
+    <button onclick="searchBusinesses()">Search</button>
+    <div id="map" style="height: 500px; width: 100%;"></div>
+  </body>
+</html>
