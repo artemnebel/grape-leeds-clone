@@ -1,0 +1,25 @@
+# Claude Code configuration
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (if you add them later)
+node_modules/
+
+# Build outputs (if you add build process later)
+dist/
+build/

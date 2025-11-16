@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Local Lead Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Stripe.js (publishable key is used in script.js) -->
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-mark">LF</div>
+      <div class="brand-text">
+        <div class="brand-title">Local Lead Finder</div>
+        <div class="brand-subtitle">Discover local businesses without real websites</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="credits-box">
+        <span id="credits-label">Credits: 0</span>
+        <button id="buy-credits-btn" type="button">Buy 5 scans – $10</button>
+      </div>
+      <span class="beta-pill">MVP</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-container">
+      <!-- Search card (leave as we had it before) -->
+      <section class="search-card">
+        <div class="search-toolbar">
+          <div class="search-main">
+            <label for="category-input">Business category</label>
+            <div class="search-row">
+              <input
+                id="category-input"
+                type="text"
+                placeholder="e.g. plumber, restaurant, electrician"
+              />
+              <button id="search-btn" type="button">Search</button>
+            </div>
+          </div>
+
+          <div class="filters-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="filter-phone" checked />
+              Must have phone number
+            </label>
+
+            <div class="rating-filter">
+              <span>Min rating</span>
+              <select id="filter-rating">
+                <option value="0">Any</option>
+                <option value="3">3.0+</option>
+                <option value="3.5">3.5+</option>
+                <option value="4">4.0+</option>
+                <option value="4.5">4.5+</option>
+              </select>
+            </div>
+
+            <label class="checkbox-label">
+              <input type="checkbox" id="filter-no-website" />
+              Only no real website
+            </label>
+          </div>
+
+          <div class="toolbar-footer">
+            <p class="hint-text">
+              Click on the map to set the search center. Drag the blue circle or its edge to adjust
+              the radius.
+            </p>
+            <p class="hint-text">
+              Current radius: <span id="radius-value">3.0 mi</span>
+            </p>
+            <div class="export-row">
+              <button id="download-csv-btn" type="button">Download CSV</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="results-summary" class="results-summary">
+        No search yet. Choose a category and area to begin.
+      </div>
+
+      <section id="map-container">
+        <div id="map"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Order matters: FileScript -> main script -> Google Maps -->
+  <script src="FileScript.js"></script>
+  <script src="script.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3mHWTe1aHMhRXExLzUaMF_CEbOU3Sa64&callback=initMap&libraries=places&v=weekly"
+    async
+    defer
+    onerror="console.error('Failed to load Google Maps script')"
+  ></script>
+  <script>
+    window.gm_authFailure = function() {
+      console.error('Google Maps authentication failed. Check your API key.');
+      alert('Google Maps failed to load. Please check the API key and billing settings.');
+    };
+  </script>
+</body>
+</html>
