@@ -2,23 +2,14 @@
   "name": "leadswebsite",
   "version": "1.0.0",
   "description": "",
-  "main": "FileScript.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/artemnebel/grape-leeds-clone.git"
+    "build": "echo \"No build step\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/artemnebel/grape-leeds-clone/issues"
-  },
-  "homepage": "https://github.com/artemnebel/grape-leeds-clone#readme",
   "dependencies": {
-    "stripe": "^19.3.1"
+    "stripe": "^16.0.0"
   }
 }
